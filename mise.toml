@@ -1,10 +1,14 @@
 [tools]
 balena = "latest"
 
-[tasks.nixos-iso]
+[tasks.install-nix]
+description = "install nix package manager on macOS"
+run = "sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install)"
+
+[tasks.download-nixos-iso]
 description = "download NixOS iso"
 run = "curl -L -o nixos.iso https://channels.nixos.org/nixos-25.11/latest-nixos-minimal-x86_64-linux.iso"
 
-[tasks.nixos-usb]
+[tasks.flash-nixos-usb]
 description = "flash NixOS iso to usb"
 run = "sudo balena local flash nixos.iso"
