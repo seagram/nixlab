@@ -1,0 +1,10 @@
+[tools]
+balena = "latest"
+
+[tasks.nixos-iso]
+description = "download NixOS iso"
+run = "curl -L -o nixos.iso https://channels.nixos.org/nixos-25.11/latest-nixos-minimal-x86_64-linux.iso"
+
+[tasks.nixos-usb]
+description = "flash NixOS iso to usb"
+run = "sudo balena local flash nixos.iso"
